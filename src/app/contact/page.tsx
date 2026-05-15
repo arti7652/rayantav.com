@@ -5,6 +5,7 @@ import { SITE_CONFIG } from '@/lib/site-config'
 import { getFactoryState } from '@/design/factory/get-factory-state'
 import { getProductKind } from '@/design/factory/get-product-kind'
 import { CONTACT_PAGE_OVERRIDE_ENABLED, ContactPageOverride } from '@/overrides/contact-page'
+import { ContactLeadForm } from "@/components/shared/contact-lead-form";
 
 function getTone(kind: ReturnType<typeof getProductKind>) {
   if (kind === 'directory') {
@@ -124,6 +125,15 @@ export default function ContactPage() {
                 Send message
               </button>
             </form>
+            <div className="mt-5">
+              <a
+                href={`mailto:${contactEmail}`}
+                className={`inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-semibold ${tone.action}`}
+              >
+                Email us at {contactEmail}
+              </a>
+            </div>
+            <ContactLeadForm />
           </div>
         </section>
       </main>
